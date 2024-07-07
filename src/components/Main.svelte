@@ -32,6 +32,7 @@ let benefits = [
             "Driven by curiosity, I am constantly exploring new technologies and methodologies, eager to broaden my skillset both within and beyond ML.",
     },
     {
+        // TODO: change this 
         name: "A dedicated endurance sports enthusiast",
         description:
             "Beyond technology, I am an avid enthusiast of endurance sports, finding parallels between the discipline required in sports and in my professional endeavors. Specifically, I practise trail-running and cycling.",
@@ -49,7 +50,7 @@ let benefits = [
             class="flex flex-col lg:justify-center text-center lg:text-left gap-6 md:gap-8 lg:gap-10"
         >
             <h2 class="font-semibold text-4xl sm:text-5xl md:text-6xl">
-                Hi! I'm <span class="poppins text-violet-400">Martin</span> ACCOU
+                Hi! I'm <span class="poppins text-violet-400">Martin</span> ACCOU,
                 <br />AI/ML
                 <span class="poppins text-violet-400">Engineer</span>
             </h2>
