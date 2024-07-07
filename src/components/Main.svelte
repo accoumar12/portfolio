@@ -5,41 +5,38 @@
         {
             name: "Smoljames Store",
             icon: "fa-solid fa-cart-shopping",
-            description:
-                "Smoljames Store is a a merchanising store created with Next.js, Commerce.js & Stripe! Commerce.js is a CMS for managing project and Stripe is used for all transaction handling.",
         },
         {
             name: "Utlimate Todos",
             icon: "fa-solid fa-list-check",
-            description:
-                "Test for model robustness with customized test profiles and receive exhaustive reporting on the performance and potential vulnerabilities of your model.",
         },
         {
-            name: "Pokédex",
-            icon: "fa-solid fa-diagram-project",
+            name: "HPC Calculus",
+            icon: "fa-solid fa-rocket",
             description:
-                "Augment your datasets with our filters and dataset manipulations to ensure your models are trained on the highest quality datasets (coming soon).",
+                "While implementing various models is essential, optimizing them is particularly crucial today, especially as models continue to grow in size. I gained proficiency in several high-performance computing libraries—such as OpenMP, MPI, and CUDA—during my final year at Supaero. You can find projects showcasing these skills on my GitHub profile, including one focused on CUDA.",
         },
     ];
 
-    let benefits = [
-        {
-            metric: "10x",
-            name: "a self taught developer",
-            description:
-                "I taught myself to code using free online resources and absolutely fell in love with the creativity and problem solving that is involved in developing and engineering innovative new online experiences. Starting of with JavaScript, HTML & CSS and evolving my knowledge base to include JavaScript frameworks, backend programming, design, cloud services and much much more.",
-        },
-        {
-            name: "a product design & UX finatic",
-            description:
-                "Carefully crafting and designing amazing user experiences allows me to express and experiment with every morsel of creativity I have. I love the challenge of learning new design concepts and enabling users with amazing online experiences.",
-        },
-        {
-            name: "an excellent communicator",
-            description:
-                "Communication is key and it's a paramount value of mine. I believe in transparency and constructive communication above all else. This helps me develop deep relationships and ensures my effectiveness and productivity in any work space with any team.",
-        },
-    ];
+let benefits = [
+    {
+        metric: "ML",
+        name: "A passionate ML engineer",
+        description:
+            "I am enthusiatic about machine learning, constantly expanding my knowledge in this field, particularly in the realms of computer vision and 3D data. I also enjoy backend development and have expertise in dockerizing models for deployment in production.",
+    },
+    {
+        name: "A perpetual learner",
+        description:
+            "Driven by curiosity, I am constantly exploring new technologies and methodologies, eager to broaden my skillset both within and beyond ML.",
+    },
+    {
+        name: "A dedicated endurance sports enthusiast",
+        description:
+            "Beyond technology, I am an avid enthusiast of endurance sports, finding parallels between the discipline required in sports and in my professional endeavors. Specifically, I practise trail-running and cycling.",
+    },
+];
+
 </script>
 
 <main class="flex flex-col flex-1 p-4">
@@ -77,10 +74,10 @@
     <section class="py-20 lg:py-32 flex flex-col gap-24" id="projects">
         <div class="flex flex-col gap-2 text-center">
             <h6 class="text-large sm:text-xl md:text-2xl">
-                A few of my creative endeavors.
+                Some of my personal projects outside of my professional work.
             </h6>
             <h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl">
-                Curious to <span class="poppins text-violet-400">see</span> my work?
+                Curious to <span class="poppins text-violet-400">see</span> them?
             </h3>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">
@@ -95,18 +92,6 @@
             </Step>
             <Step step={steps[1]}>
                 <p>
-                    Ultimate Todos is a Full Stack <strong
-                        class="text-violet-400">Next.js</strong
-                    >,
-                    <strong class="text-violet-400">Node.js + Express.js</strong
-                    >
-                    & <strong class="text-violet-400">Firebase</strong> CRUD application
-                    that allows a user to login, manage a tidy and efficacious todo
-                    list, and persist this information across devices.
-                </p>
-            </Step>
-            <Step step={steps[2]}>
-                <p>
                     The Pokédex is a <strong class="text-violet-400"
                         >SvelteKit & TailwindCSS</strong
                     >
@@ -116,6 +101,11 @@
                     <strong class="text-violet-400">Pokémon API</strong>
                     to display all Pokémon information. Gotta catch them all!
                 </p>
+            </Step>
+            <Step step={steps[2]}>
+<p>Implementing models is crucial, but <strong class="text-violet-400">optimizing</strong> them is paramount, especially as they grow in size. I practised <strong class="text-violet-400">OpenMP</strong>, <strong class="text-violet-400">MPI</strong>, and <strong class="text-violet-400">CUDA</strong>. Explore my GitHub for projects showcasing these skills, including one focused on CUDA.</p>
+
+
             </Step>
         </div>
     </section>
