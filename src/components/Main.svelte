@@ -3,18 +3,19 @@
 
     let steps = [
         {
-            name: "Smoljames Store",
-            icon: "fa-solid fa-cart-shopping",
+            href: "https://github.com/accoumar12/LLM4Math",
+            name: "LLM4Math",
+            icon: "fa-solid fa-percent",
         },
         {
-            name: "Utlimate Todos",
-            icon: "fa-solid fa-list-check",
-        },
-        {
+            href: "https://github.com/accoumar12/HPC-Cuda",
             name: "HPC Calculus",
             icon: "fa-solid fa-rocket",
-            description:
-                "While implementing various models is essential, optimizing them is particularly crucial today, especially as models continue to grow in size. I gained proficiency in several high-performance computing libraries—such as OpenMP, MPI, and CUDA—during my final year at Supaero. You can find projects showcasing these skills on my GitHub profile, including one focused on CUDA.",
+        },
+        {
+            href: "https://github.com/accoumar12/DARTS",
+            name: "DARTS",
+            icon: "fa-solid fa-diagram-project",
         },
     ];
 
@@ -82,28 +83,16 @@ let benefits = [
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">
             <Step step={steps[0]}>
-                <p>
-                    Smoljames Store is a a merchanising store created with <strong
-                        class="text-violet-400"
-                        >Next.js, Commerce.js, Stripe & Node.js + Express.js!</strong
-                    > Commerce.js is a product CMS and Stripe is used for all transaction
-                    handling.
-                </p>
+<p>Surfing on the wave of LLMs and RAG, I developed a <strong class="text-violet-400">chatbot</strong> to assist mathematics teachers in creating custom exercises and lessons.</p>
+
             </Step>
             <Step step={steps[1]}>
-                <p>
-                    The Pokédex is a <strong class="text-violet-400"
-                        >SvelteKit & TailwindCSS</strong
-                    >
-                    web application, hosted on
-                    <strong class="text-violet-400">Netlify</strong>, that
-                    consumes and caches the
-                    <strong class="text-violet-400">Pokémon API</strong>
-                    to display all Pokémon information. Gotta catch them all!
-                </p>
+<p>Implementing models is crucial, but <strong class="text-violet-400">optimizing</strong> them is paramount, especially as they grow in size. I practised <strong class="text-violet-400">OpenMP</strong>, <strong class="text-violet-400">MPI</strong>, and <strong class="text-violet-400">CUDA</strong>. Explore my GitHub for projects showcasing these skills, including one focused on CUDA.</p>
+
+
             </Step>
             <Step step={steps[2]}>
-<p>Implementing models is crucial, but <strong class="text-violet-400">optimizing</strong> them is paramount, especially as they grow in size. I practised <strong class="text-violet-400">OpenMP</strong>, <strong class="text-violet-400">MPI</strong>, and <strong class="text-violet-400">CUDA</strong>. Explore my GitHub for projects showcasing these skills, including one focused on CUDA.</p>
+<p>I enjoy reading research papers, and one particularly interested me enough to write a notebook explaining it. It focuses on <strong class="text-violet-400">Differentiable Architecture Search </strong>, an automated method for optimizing neural network architectures!</p>
 
 
             </Step>
