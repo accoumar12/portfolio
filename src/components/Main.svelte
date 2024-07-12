@@ -84,7 +84,7 @@ let benefits = [
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">
             <Step step={steps[0]}>
-<p>Surfing on the wave of LLMs and RAG, I developed a <strong class="text-violet-400">chatbot</strong> to assist mathematics teachers in creating custom exercises and lessons.</p>
+<p>Surfing on the wave of <strong class="text-violet-400">LLMs</strong> and <strong class="text-violet-400">RAG</strong>, I developed a <strong class="text-violet-400">chatbot</strong> to assist mathematics teachers in creating custom exercises and lessons.</p>
 
             </Step>
             <Step step={steps[1]}>
