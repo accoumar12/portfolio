@@ -1,11 +1,12 @@
 <script>
+  // TODO: add a roastme section where people can roast at me.
   import Step from "./Step.svelte";
 
   let steps = [
     {
-      href: "https://github.com/accoumar12/LLM4Math",
-      name: "LLM4Math",
-      icon: "fa-solid fa-percent",
+      href: "https://maccou-blog.netlify.app/building-a-3-d-similarity-model-for-cad-designs/",
+      name: "3D Deep Learning",
+      icon: "fa-solid fa-cube",
     },
     {
       href: "https://github.com/accoumar12/HPC-Cuda",
@@ -82,7 +83,8 @@
   <section class="py-20 lg:py-32 flex flex-col gap-24" id="projects">
     <div class="flex flex-col gap-2 text-center">
       <h6 class="text-large sm:text-xl md:text-2xl">
-        Some of my personal projects outside of my professional work.
+        A selection of projects from both my professional work and personal endeavors.  
+
       </h6>
       <h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl">
         Curious to <span class="poppins text-violet-400">see</span> them?
@@ -91,10 +93,8 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">
       <Step step={steps[0]}>
         <p>
-          Surfing on the wave of <strong class="text-violet-400">LLMs</strong>
-          and <strong class="text-violet-400">RAG</strong>, I developed a
-          <strong class="text-violet-400">chatbot</strong> to assist mathematics
-          teachers in creating custom exercises and lessons.
+          Already passionate about 2D computer vision during my studies, I later specialized in <strong class="text-violet-400">3D computer vision</strong> while working at D3S. There, I implemented a <strong class="text-violet-400"> 3D similarity model</strong> and a <strong class="text-violet-400">3D instance segmentation model</strong> tailored to our needs for working with CAD data.  
+
         </p>
       </Step>
       <Step step={steps[1]}>
