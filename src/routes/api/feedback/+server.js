@@ -108,46 +108,34 @@ async function sendFeedbackEmail(feedback) {
         const transporter = nodemailer.createTransport(EMAIL_CONFIG);
 
         // Prepare email content
-        const emailSubject = `New Portfolio Feedback - ${feedback.id}`;
+        const emailSubject = `Portfolio Feedback - ${feedback.id}`;
         
         const emailHtml = `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-                <h2 style="color: #6366f1;">New Portfolio Feedback Received</h2>
+            <div style="font-family: system-ui, -apple-system, sans-serif; max-width: 500px; margin: 0 auto; color: #333;">
+                <h2 style="font-size: 18px; font-weight: 600; margin: 0 0 24px 0;">New Feedback</h2>
                 
-                <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                    <h3 style="color: #334155; margin-top: 0;">Contact Information</h3>
-                    <p><strong>Name:</strong> ${feedback.name || 'Not provided'}</p>
-                    <p><strong>Email:</strong> ${feedback.email || 'Not provided'}</p>
-                    <p><strong>Submission Time:</strong> ${new Date(feedback.timestamp).toLocaleString()}</p>
-                    <p><strong>Feedback ID:</strong> ${feedback.id}</p>
+                <div style="margin-bottom: 20px;">
+                    <p style="margin: 4px 0;"><strong>Name:</strong> ${feedback.name || 'Anonymous'}</p>
+                    <p style="margin: 4px 0;"><strong>Email:</strong> ${feedback.email || 'Not provided'}</p>
+                    <p style="margin: 4px 0;"><strong>Date:</strong> ${new Date(feedback.timestamp).toLocaleDateString()}</p>
                 </div>
 
-                <div style="background-color: #f1f5f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                    <h3 style="color: #334155; margin-top: 0;">Feedback Message</h3>
-                    <div style="white-space: pre-wrap; line-height: 1.6;">${feedback.message}</div>
-                </div>
-
-                <div style="margin-top: 30px; padding: 15px; background-color: #ecfdf5; border-radius: 8px; border-left: 4px solid #22c55e;">
-                    <p style="margin: 0; color: #166534;">
-                        This feedback was submitted through your portfolio website feedback form.
-                    </p>
+                <div style="margin: 20px 0;">
+                    <p style="margin: 0 0 8px 0;"><strong>Message:</strong></p>
+                    <p style="margin: 0; line-height: 1.5; white-space: pre-wrap;">${feedback.message}</p>
                 </div>
             </div>
         `;
 
         const emailText = `
-New Portfolio Feedback Received
+New Feedback
 
-Contact Information:
-Name: ${feedback.name || 'Not provided'}
+Name: ${feedback.name || 'Anonymous'}
 Email: ${feedback.email || 'Not provided'}
-Submission Time: ${new Date(feedback.timestamp).toLocaleString()}
-Feedback ID: ${feedback.id}
+Date: ${new Date(feedback.timestamp).toLocaleDateString()}
 
-Feedback Message:
+Message:
 ${feedback.message}
-
-This feedback was submitted through your portfolio website feedback form.
         `;
 
         // Send email
