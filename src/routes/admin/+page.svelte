@@ -49,16 +49,36 @@
 
 <div class="min-h-screen bg-slate-900 text-white">
     <div class="container mx-auto px-6 py-8">
-        <div class="mb-8">
-            <h1 class="text-3xl font-bold text-violet-400 mb-2">Feedback Dashboard</h1>
-            <p class="text-slate-300">Anonymous feedback submissions from your portfolio</p>
-        </div>
+        <div class="max-w-6xl mx-auto px-6 py-12">
+            <div class="mb-8">
+                <h1 class="text-4xl font-bold mb-4">Feedback Dashboard</h1>
+                <p class="text-slate-400">Manage and view portfolio feedback submissions</p>
+            </div>
 
-        {#if data.feedbacks.length === 0}
+            {#if data.emailMode}
+                <div class="bg-blue-900/30 border border-blue-500 rounded-lg p-6 mb-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-blue-400 mr-3 text-2xl">📧</span>
+                        <h2 class="text-xl font-semibold text-blue-200">Email-Based Feedback System</h2>
+                    </div>
+                    <p class="text-blue-100 mb-4">{data.message}</p>
+                    <div class="text-sm text-blue-200">
+                        <p class="mb-2"><strong>How it works:</strong></p>
+                        <ul class="list-disc list-inside space-y-1 ml-4">
+                            <li>Feedback submissions are now sent directly to your email</li>
+                            <li>No data is stored locally on the server</li>
+                            <li>You'll receive formatted emails with all feedback details</li>
+                            <li>Configure email settings in your .env file</li>
+                        </ul>
+                    </div>
+                </div>
+            {/if}
+
+            {#if data.feedbacks.length === 0}
             <div class="text-center py-12">
                 <div class="text-6xl mb-4">📭</div>
-                <h3 class="text-xl text-slate-300 mb-2">No feedback yet</h3>
-                <p class="text-slate-400">Feedback submissions will appear here once people start using the feedback form.</p>
+                <h3 class="text-xl text-slate-300 mb-2">No feedback stored locally</h3>
+                <p class="text-slate-400">All feedback is now sent directly to your email inbox.</p>
             </div>
         {:else}
             <div class="mb-4 flex justify-between items-center">

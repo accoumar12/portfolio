@@ -1,8 +1,22 @@
 import { json } from '@sveltejs/kit';
+import nodemailer from 'nodemailer';
 
 // In-memory store to prevent duplicate submissions
 const recentSubmissions = new Map();
 const DUPLICATE_WINDOW = 5000; // 5 seconds
+
+// Email configuration - you'll need to set these environment variables
+const EMAIL_CONFIG = {
+    host: process.env.SMTP_HOST || 'smtp.gmail.com',
+    port: process.env.SMTP_PORT || 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+        user: process.env.SMTP_USER, // your email
+        pass: process.env.SMTP_PASS  // your app password
+    }
+};
+
+const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || process.env.SMTP_USER;
 
 /** @type {import('./$types').RequestHandler} */
 export async function POST({ request }) {
@@ -55,8 +69,8 @@ export async function POST({ request }) {
         // Log the feedback
         console.log('Feedback received:', feedbackWithTimestamp);
         
-        // Save to file
-        await saveFeedback(feedbackWithTimestamp);
+        // Send email instead of saving to file
+        await sendFeedbackEmail(feedbackWithTimestamp);
 
         return json(
             { message: 'Feedback submitted successfully', id: feedbackWithTimestamp.id }, 
@@ -75,90 +89,81 @@ function generateId() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
 
-// Simple file locking mechanism to prevent race conditions
-let isWriting = false;
-const writeQueue = [];
-
-async function saveFeedback(feedback) {
-    return new Promise((resolve, reject) => {
-        writeQueue.push({ feedback, resolve, reject });
-        processWriteQueue();
-    });
-}
-
-async function processWriteQueue() {
-    if (isWriting || writeQueue.length === 0) {
-        return;
-    }
-    
-    isWriting = true;
-    
+async function sendFeedbackEmail(feedback) {
     try {
-        const fs = await import('fs/promises');
-        const path = await import('path');
-        
-        const feedbackDir = 'feedback-data';
-        const feedbackFile = path.join(feedbackDir, 'feedbacks.json');
-        
-        // Create directory if it doesn't exist
-        try {
-            await fs.mkdir(feedbackDir, { recursive: true });
-        } catch (error) {
-            // Directory might already exist
+        // Check if email configuration is available
+        if (!EMAIL_CONFIG.auth.user || !EMAIL_CONFIG.auth.pass) {
+            console.warn('Email configuration not found. Logging feedback to console instead.');
+            console.log('=== FEEDBACK SUBMISSION ===');
+            console.log('Name:', feedback.name || 'Not provided');
+            console.log('Email:', feedback.email || 'Not provided');
+            console.log('Message:', feedback.message);
+            console.log('Timestamp:', feedback.timestamp);
+            console.log('ID:', feedback.id);
+            console.log('=========================');
+            return; // Exit without sending email
         }
+
+        // Create transporter
+        const transporter = nodemailer.createTransport(EMAIL_CONFIG);
+
+        // Prepare email content
+        const emailSubject = `New Portfolio Feedback - ${feedback.id}`;
         
-        // Process all queued writes at once
-        let existingFeedbacks = [];
-        try {
-            const data = await fs.readFile(feedbackFile, 'utf-8');
-            existingFeedbacks = JSON.parse(data);
-        } catch (error) {
-            // File doesn't exist yet, start with empty array
-        }
-        
-        // Ensure it's an array
-        if (!Array.isArray(existingFeedbacks)) {
-            existingFeedbacks = [];
-        }
-        
-        // Add all queued feedbacks
-        const currentQueue = [...writeQueue];
-        writeQueue.length = 0; // Clear the queue
-        
-        for (const { feedback, resolve, reject } of currentQueue) {
-            try {
-                // Check if this feedback already exists (by ID or content similarity)
-                const isDuplicate = existingFeedbacks.some(existing => 
-                    existing.id === feedback.id || 
-                    (existing.message === feedback.message && 
-                     Math.abs(new Date(existing.timestamp) - new Date(feedback.timestamp)) < 10000) // 10 seconds
-                );
+        const emailHtml = `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                <h2 style="color: #6366f1;">New Portfolio Feedback Received</h2>
                 
-                if (!isDuplicate) {
-                    existingFeedbacks.push(feedback);
-                }
-                resolve();
-            } catch (error) {
-                reject(error);
-            }
-        }
-        
-        // Write the updated file
-        await fs.writeFile(feedbackFile, JSON.stringify(existingFeedbacks, null, 2));
-        
+                <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                    <h3 style="color: #334155; margin-top: 0;">Contact Information</h3>
+                    <p><strong>Name:</strong> ${feedback.name || 'Not provided'}</p>
+                    <p><strong>Email:</strong> ${feedback.email || 'Not provided'}</p>
+                    <p><strong>Submission Time:</strong> ${new Date(feedback.timestamp).toLocaleString()}</p>
+                    <p><strong>Feedback ID:</strong> ${feedback.id}</p>
+                </div>
+
+                <div style="background-color: #f1f5f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                    <h3 style="color: #334155; margin-top: 0;">Feedback Message</h3>
+                    <div style="white-space: pre-wrap; line-height: 1.6;">${feedback.message}</div>
+                </div>
+
+                <div style="margin-top: 30px; padding: 15px; background-color: #ecfdf5; border-radius: 8px; border-left: 4px solid #22c55e;">
+                    <p style="margin: 0; color: #166534;">
+                        This feedback was submitted through your portfolio website feedback form.
+                    </p>
+                </div>
+            </div>
+        `;
+
+        const emailText = `
+New Portfolio Feedback Received
+
+Contact Information:
+Name: ${feedback.name || 'Not provided'}
+Email: ${feedback.email || 'Not provided'}
+Submission Time: ${new Date(feedback.timestamp).toLocaleString()}
+Feedback ID: ${feedback.id}
+
+Feedback Message:
+${feedback.message}
+
+This feedback was submitted through your portfolio website feedback form.
+        `;
+
+        // Send email
+        const mailOptions = {
+            from: EMAIL_CONFIG.auth.user,
+            to: RECIPIENT_EMAIL,
+            subject: emailSubject,
+            text: emailText,
+            html: emailHtml
+        };
+
+        await transporter.sendMail(mailOptions);
+        console.log('Feedback email sent successfully:', feedback.id);
+
     } catch (error) {
-        console.error('Error saving feedback to file:', error);
-        // Reject all queued operations
-        const currentQueue = [...writeQueue];
-        writeQueue.length = 0;
-        for (const { reject } of currentQueue) {
-            reject(error);
-        }
-    } finally {
-        isWriting = false;
-        // Process any new items that were added while we were writing
-        if (writeQueue.length > 0) {
-            setTimeout(processWriteQueue, 100);
-        }
+        console.error('Error sending feedback email:', error);
+        throw new Error('Failed to send feedback email');
     }
 }
