@@ -13,9 +13,11 @@
             ? " py-4 bg-slate-950 border-violet-950"
             : " py-6 bg-transparent border-transparent")}
 >
-    <h1 class="font-medium">
-        <b class="font-bold poppins">Martin</b> <span class="">ACCOU</span>
-    </h1>
+    <a href="/" class="font-medium hover:text-violet-400 duration-200">
+        <h1>
+            <b class="font-bold poppins">Martin</b> <span class="">ACCOU</span>
+        </h1>
+    </a>
     <div class="sm:flex items-center gap-4 hidden">
         {#each tabs as tab, index}
             <a
