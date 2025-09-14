@@ -20,7 +20,7 @@
                     Share Your <span class="poppins text-violet-400">Feedback</span>
                 </h1>
                 <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto">
-                I'm a strong believer that receiving actionable feedback is one of the quickest ways to grow, and thank you for taking the time to help me improve!
+                I'm a strong believer that receiving actionable feedback is one of the quickest ways to grow, thank you for taking the time to help me improve!
                 </p>
             </div>
         </div>
