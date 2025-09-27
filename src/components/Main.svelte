@@ -23,20 +23,20 @@
   let benefits = [
     {
       metric: "ML",
-      name: "A passionate ML engineer",
+      name: "A machine learning engineer",
       description:
-        "I am enthusiatic about machine learning, constantly expanding my knowledge in this field, particularly in the realms of computer vision and 3D data. I also enjoy backend development and have expertise in dockerizing models for deployment in production.",
+        "I love working with machine learning, especially computer vision and 3D data. I also enjoy backend development and know how to deploy models in production.",
     },
     {
-      name: "A perpetual learner",
+      name: "Always learning",
       description:
-        "Driven by curiosity, I am constantly exploring new technologies and methodologies, eager to broaden my skillset both within and beyond ML.",
+        "I'm curious about new technologies and always looking to learn something new, whether it's ML-related or not.",
     },
     {
       // TODO: change this
-      name: "A dedicated endurance sports enthusiast",
+      name: "Into endurance sports",
       description:
-        "Beyond technology, I am an avid enthusiast of endurance sports, finding parallels between the discipline required in sports and in my professional endeavors. Specifically, I practise trail-running and cycling.",
+        "When I'm not coding, you'll find me trail running or cycling. I find that the discipline from sports helps me in my work too.",
     },
   ];
 </script>
@@ -83,40 +83,44 @@
   <section class="py-20 lg:py-32 flex flex-col gap-24" id="projects">
     <div class="flex flex-col gap-2 text-center">
       <h6 class="text-large sm:text-xl md:text-2xl">
-        A selection of projects from both my professional work and personal endeavors.  
-
+        Some projects from my work and personal time.
       </h6>
       <h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl">
-        Curious to <span class="poppins text-violet-400">see</span> them?
+        Want to <span class="poppins text-violet-400">check them out</span>?
       </h3>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">
       <Step step={steps[0]}>
         <p>
-          Already passionate about 2D computer vision during my studies, I later specialized in <strong class="text-violet-400">3D computer vision</strong> while working at D3S. There, I implemented a <strong class="text-violet-400"> 3D similarity model</strong> and a <strong class="text-violet-400">3D instance segmentation model</strong> tailored to our needs for working with CAD data.  
-
+          I got into 2D computer vision during my studies, then moved into <strong
+            class="text-violet-400">3D computer vision</strong
+          >
+          at D3S. There I built a
+          <strong class="text-violet-400">3D similarity model</strong>
+          and a
+          <strong class="text-violet-400">3D instance segmentation model</strong
+          > for working with CAD data.
         </p>
       </Step>
       <Step step={steps[1]}>
         <p>
-          Implementing models is crucial, but <strong class="text-violet-400"
-            >optimizing</strong
+          Building models is great, but <strong class="text-violet-400"
+            >making them fast</strong
           >
-          them is paramount, especially as they grow in size. I practised
+          is even better, especially when they get big. I've worked with
           <strong class="text-violet-400">OpenMP</strong>,
           <strong class="text-violet-400">MPI</strong>, and
-          <strong class="text-violet-400">CUDA</strong>. Explore my GitHub for
-          projects showcasing these skills, including one focused on CUDA.
+          <strong class="text-violet-400">CUDA</strong>. Check out my GitHub for
+          examples, including some CUDA projects.
         </p>
       </Step>
       <Step step={steps[2]}>
         <p>
-          I enjoy reading research papers, and one particularly interested me
-          enough to write a notebook explaining it. It focuses on <strong
+          I like reading research papers, and one caught my attention enough
+          that I wrote a notebook about it. It's about <strong
             class="text-violet-400"
             >Differentiable Architecture Search
-          </strong>, an automated method for optimizing neural network
-          architectures!
+          </strong> - basically an automated way to optimize neural network architectures.
         </p>
       </Step>
     </div>
