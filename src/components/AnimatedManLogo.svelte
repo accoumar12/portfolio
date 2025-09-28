@@ -23,8 +23,9 @@
     if (
       event.clientX <= 0 ||
       event.clientY <= 0 ||
-      event.clientX >= window.innerWidth ||
-      event.clientY >= window.innerHeight
+      event.clientX >=
+        (typeof window !== "undefined" ? window.innerWidth : 0) ||
+      event.clientY >= (typeof window !== "undefined" ? window.innerHeight : 0)
     ) {
       rotation = { x: 0, y: 0 };
       eyePosition = {
@@ -75,10 +76,12 @@
   };
 
   onMount(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("touchmove", handleMouseMove, { passive: true });
-    window.addEventListener("touchstart", handleMouseMove, { passive: true });
-    window.addEventListener("mouseleave", resetPosition);
+    if (typeof window !== "undefined") {
+      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("touchmove", handleMouseMove, { passive: true });
+      window.addEventListener("touchstart", handleMouseMove, { passive: true });
+      window.addEventListener("mouseleave", resetPosition);
+    }
 
     blinkInterval = setInterval(
       () => {
@@ -100,10 +103,12 @@
   });
 
   onDestroy(() => {
-    window.removeEventListener("mousemove", handleMouseMove);
-    window.removeEventListener("touchmove", handleMouseMove);
-    window.removeEventListener("touchstart", handleMouseMove);
-    window.removeEventListener("mouseleave", resetPosition);
+    if (typeof window !== "undefined") {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchmove", handleMouseMove);
+      window.removeEventListener("touchstart", handleMouseMove);
+      window.removeEventListener("mouseleave", resetPosition);
+    }
     clearInterval(blinkInterval);
     clearInterval(nodInterval);
   });
