@@ -116,7 +116,7 @@
 
 <div
   bind:this={containerRef}
-  class="flex justify-center items-center w-12 h-12 cursor-pointer hover:scale-110 duration-200"
+  class="flex justify-center items-center w-20 h-20 cursor-pointer hover:scale-110 duration-200"
   style="overflow: visible;"
 >
   <svg
