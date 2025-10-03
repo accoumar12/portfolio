@@ -71,7 +71,6 @@
         <span class="relative z-9">Get in touch 🤝</span>
       </a>
     </div>
-    <!-- TODO: More shiny profile picture-->
     <div class="relative shadow-2xl grid place-items-center">
       <img
         src={"images/profile.png"}
