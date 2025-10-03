@@ -13,7 +13,7 @@
       ? " py-5 bg-slate-950 border-violet-950"
       : " py-8 bg-transparent border-transparent")}
 >
-  <a href="/" class="font-medium hover:text-violet-400 duration-200">
+  <a href="/" class="font-medium hover:text-violet-400 duration-200 text-xl">
     <h1>
       <b class="font-bold poppins">Martin</b> <span class="">ACCOU</span>
     </h1>
