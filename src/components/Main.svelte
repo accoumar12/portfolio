@@ -9,14 +9,14 @@
       icon: "fa-solid fa-cube",
     },
     {
+      href: "https://github.com/accoumar12/labelizer-back",
+      name: "Triplet Labelizer",
+      icon: "fa-solid fa-tags",
+    },
+    {
       href: "https://github.com/accoumar12/HPC-Cuda",
       name: "HPC Calculus",
       icon: "fa-solid fa-rocket",
-    },
-    {
-      href: "https://github.com/accoumar12/DARTS",
-      name: "DARTS",
-      icon: "fa-solid fa-diagram-project",
     },
   ];
 
@@ -103,6 +103,16 @@
       </Step>
       <Step step={steps[1]}>
         <p>
+          I built an app for labeling <strong class="text-violet-400"
+            >triplets</strong
+          >—sets of three items used in machine learning. I used it for
+          <strong class="text-violet-400">triplet loss</strong> training of a 3D
+          encoder model for CAD designs. I really like such minimal and effective
+          solutions!
+        </p>
+      </Step>
+      <Step step={steps[2]}>
+        <p>
           Building models is great, but <strong class="text-violet-400"
             >making them fast</strong
           >
@@ -111,15 +121,6 @@
           <strong class="text-violet-400">MPI</strong>, and
           <strong class="text-violet-400">CUDA</strong>. Check out my GitHub for
           examples, including some CUDA projects.
-        </p>
-      </Step>
-      <Step step={steps[2]}>
-        <p>
-          I like reading research papers, and one caught my attention enough
-          that I wrote a notebook about it. It's about <strong
-            class="text-violet-400"
-            >Differentiable Architecture Search
-          </strong> - basically an automated way to optimize neural network architectures.
         </p>
       </Step>
     </div>
