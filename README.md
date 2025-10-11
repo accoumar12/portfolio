@@ -1,2 +1,3 @@
-# hughjass
- SvelteKit & TailwindCSS web portfolio
+# My portfolio
+
+This is my personal portfolio website showcasing my projects.
