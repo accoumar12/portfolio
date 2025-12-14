@@ -4,7 +4,7 @@
 
   let steps = [
     {
-      href: "https://maccou-blog.netlify.app/building-a-3-d-similarity-model-for-cad-designs/",
+      href: "https://blog.accoumar.fr/building-a-3-d-similarity-model-for-cad-designs/",
       name: "3D Deep Learning",
       icon: "fa-solid fa-cube",
     },
