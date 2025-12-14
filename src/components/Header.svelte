@@ -39,7 +39,7 @@
       </a>
     {/each}
     <a
-      href="https://maccou-blog.netlify.app/"
+      href="https://blog.accoumar.fr/"
       class="blueShadow relative overflow-hidden px-6 py-3 group rounded-full bg-white text-slate-950"
       role="button"
       target="_blank"
@@ -110,7 +110,7 @@
         </a>
       {/each}
       <a
-        href="https://maccou-blog.netlify.app/"
+        href="https://blog.accoumar.fr/"
         class="blueShadow relative overflow-hidden px-8 py-4 group rounded-full bg-white text-slate-950"
         role="button"
         target="_blank"
