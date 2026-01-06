@@ -4,6 +4,11 @@
 
   let steps = [
     {
+      href: "https://crossfilterui.accoumar.fr/",
+      name: "CrossFilterUI",
+      icon: "fa-solid fa-sliders",
+    },
+    {
       href: "https://blog.accoumar.fr/building-a-3-d-similarity-model-for-cad-designs/",
       name: "3D Deep Learning",
       icon: "fa-solid fa-cube",
@@ -12,11 +17,6 @@
       href: "https://github.com/accoumar12/labelizer-back",
       name: "Triplet Labelizer",
       icon: "fa-solid fa-tags",
-    },
-    {
-      href: "https://github.com/accoumar12/HPC-Cuda",
-      name: "HPC Calculus",
-      icon: "fa-solid fa-rocket",
     },
   ];
 
@@ -91,6 +91,15 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">
       <Step step={steps[0]}>
         <p>
+          I faced the challenge of exploring dynamically SQL databases at work
+          and couldn't find a good open-source solution. So I built
+          <strong class="text-violet-400">CrossFilterUI</strong>—a lightweight
+          UI with <strong class="text-violet-400">dynamic filtering</strong> and
+          <strong class="text-violet-400">instant sharing capabilities</strong>!
+        </p>
+      </Step>
+      <Step step={steps[1]}>
+        <p>
           I got into 2D computer vision during my studies, then moved into <strong
             class="text-violet-400">3D computer vision</strong
           >
@@ -101,7 +110,8 @@
           > for working with CAD data.
         </p>
       </Step>
-      <Step step={steps[1]}>
+
+      <Step step={steps[2]}>
         <p>
           I built an app for labeling <strong class="text-violet-400"
             >triplets</strong
@@ -109,18 +119,6 @@
           <strong class="text-violet-400">triplet loss</strong> training of a 3D
           encoder model for CAD designs. I really like such minimal and effective
           solutions!
-        </p>
-      </Step>
-      <Step step={steps[2]}>
-        <p>
-          Building models is great, but <strong class="text-violet-400"
-            >making them fast</strong
-          >
-          is even better, especially when they get big. I've worked with
-          <strong class="text-violet-400">OpenMP</strong>,
-          <strong class="text-violet-400">MPI</strong>, and
-          <strong class="text-violet-400">CUDA</strong>. Check out my GitHub for
-          examples, including some CUDA projects.
         </p>
       </Step>
     </div>
