@@ -107,7 +107,8 @@
           <strong class="text-violet-400">3D similarity model</strong>
           and a
           <strong class="text-violet-400">3D instance segmentation model</strong
-          > for working with CAD data.
+          > for working with CAD data. Click here to read my blog post about the
+          3D similarity model!
         </p>
       </Step>
 
