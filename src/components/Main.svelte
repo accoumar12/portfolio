@@ -14,7 +14,7 @@
       icon: "fa-solid fa-cube",
     },
     {
-      href: "https://github.com/accoumar12/labelizer-back",
+      href: "https://labelizer.accoumar.fr/",
       name: "Triplet Labelizer",
       icon: "fa-solid fa-tags",
     },
