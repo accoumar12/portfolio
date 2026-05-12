@@ -4,7 +4,7 @@
 
   let steps = [
     {
-      href: "https://crossfilterui.accoumar.fr/",
+      href: "https://crossfilterui.accoumar.fr/#playground-button",
       name: "CrossFilterUI",
       icon: "fa-solid fa-sliders",
     },
